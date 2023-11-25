@@ -4,8 +4,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Builder from "@/routes/Builder"
 import MainLayout from "@/layouts/MainLayout";
+
+import Builder from "@/routes/Builder"
+import Formatter from "./routes/Formatter";
+import CheatSheet from "./routes/Cheatsheet";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Builder />,
+      },
+      {
+        path: "/format",
+        element: <Formatter />,
+      },
+      {
+        path: "/cheatsheet",
+        element: <CheatSheet />,
       },
     ],
   },

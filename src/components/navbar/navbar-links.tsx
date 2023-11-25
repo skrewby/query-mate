@@ -19,7 +19,7 @@ const NavbarLinks: React.FC<NavbarLinksProps> = ({links, className, ...props}) =
           <Link
             key={link.id}
             to={link.href}
-            className="text-md font-medium transition-colors hover:text-primary">
+            className="text-md font-medium px-2 transition-colors hover:text-primary">
               {link.label} 
           </Link>
         ) : (

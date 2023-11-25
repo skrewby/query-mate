@@ -10,6 +10,16 @@ const links: NavbarLink[] = [
     label: "Builder",
     href: "/"
   },
+  {
+    id: 1,
+    label: "Formatter",
+    href: "/format"
+  },
+  {
+    id: 2,
+    label: "Cheatsheet",
+    href: "/cheatsheet"
+  },
 ];
 
 function Navbar() {
