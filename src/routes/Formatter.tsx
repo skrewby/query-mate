@@ -11,7 +11,7 @@ function Formatter() {
   };
 
   const formatSQL = () => {
-    setFormattedSQL(format(sql, { language: 'mysql' }));
+    setFormattedSQL(format(sql, { language: 'mysql', keywordCase: 'upper' }));
   };
 
   const onKeyUp = () => {
