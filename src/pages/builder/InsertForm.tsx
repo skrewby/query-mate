@@ -42,7 +42,7 @@ const formSchema = z.object({
 
 type fieldsType = z.infer<typeof formSchema>["values"];
 
-function BuildQuery(data: JSON, table: string, values: fieldsType): string {
+function BuildQuery(data: any, table: string, values: fieldsType): string {
   var query = `INSERT INTO ${table} (`;
   
   values.map((v, index) => {

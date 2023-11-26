@@ -2,7 +2,6 @@ import { ModeToggle } from "@/components/mode-toggle";
 import NavbarLinks from "./navbar-links";
 import NavbarMobile from "./navbar-mobile";
 import { NavbarLink } from "@/interfaces/NavbarLink";
-import { useNavigate } from "react-router-dom";
 
 const links: NavbarLink[] = [
   {
@@ -18,8 +17,6 @@ const links: NavbarLink[] = [
 ];
 
 function Navbar() {
-  const navigate = useNavigate();
-
   return (
     <div className="border-b">
       <div className="flex h-16 items-center px-4">
