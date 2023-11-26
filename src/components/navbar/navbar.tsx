@@ -15,11 +15,6 @@ const links: NavbarLink[] = [
     label: "Formatter",
     href: "/format"
   },
-  {
-    id: 2,
-    label: "Cheatsheet",
-    href: "/cheatsheet"
-  },
 ];
 
 function Navbar() {

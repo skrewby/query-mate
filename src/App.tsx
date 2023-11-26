@@ -8,7 +8,6 @@ import MainLayout from "@/layouts/MainLayout";
 
 import Builder from "@/routes/Builder"
 import Formatter from "./routes/Formatter";
-import CheatSheet from "./routes/Cheatsheet";
 
 const router = createBrowserRouter([
   {
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
       {
         path: "/format",
         element: <Formatter />,
-      },
-      {
-        path: "/cheatsheet",
-        element: <CheatSheet />,
       },
     ],
   },
