@@ -17,5 +17,6 @@ A simple query builder and formatter
 
 ## Extras
 **Use a custom WHERE clause**
+
 Note that you can also use a custom text without needing to state any of the normal WHERE clauses in the fields above
 ![image](https://github.com/skrewby/query-mate/assets/33297928/ebc6468f-4e31-422f-bbbe-79446775a63a)
