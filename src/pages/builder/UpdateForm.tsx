@@ -273,7 +273,7 @@ function UpdateForm({csv, headers}: FormProps) {
               <PopoverTrigger><Button type="submit" onClick={() => setShowPreview(true)}>Preview</Button></PopoverTrigger>
               <PopoverContent className="w-[calc(100vh-10px)] bg-secondary mx-auto">{preview}</PopoverContent>
             </Popover>
-            <Button type="submit" onClick={() => setShowPreview(false)}>Download File</Button>
+            <Button type="submit" onClick={() => setShowPreview(false)}>Create Queries</Button>
           </div>
         </div>
       </form>
