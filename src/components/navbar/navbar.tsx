@@ -28,7 +28,7 @@ function Navbar() {
   return (
     <div className="border-b">
       <div className="flex h-16 items-center px-4">
-        <h1 className="hidden md:flex text-3xl font-bold tracking-tight cursor-pointer" onClick={() => navigate("/")}>Query Mate</h1>
+        <h1 className="hidden md:flex text-3xl font-bold tracking-tight cursor-pointer"><a href="https://www.youtube.com/watch?v=HyWYpM_S-2c" target="_blank" rel="noreferrer">Query Mate</a></h1>
         <NavbarLinks links={links} className="hidden mx-6 md:flex"/>
         <NavbarMobile links={links} className="md:hidden mr-4"/>
         <div className="ml-auto flex items-center space-x-4">

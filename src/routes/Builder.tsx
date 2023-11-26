@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CSVEditor from "@/pages/builder/CSVEditor";
+import InsertForm from "@/pages/builder/InsertForm";
 import UpdateForm from "@/pages/builder/UpdateForm";
 import { useState } from "react";
 
@@ -26,7 +27,7 @@ function Builder() {
       id: 1,
       value: "insert",
       label: "Insert",
-      element: <h1> Insert </h1>
+      element: <InsertForm csv={csv} headers={headers}/> 
     },
   ];
 
@@ -38,7 +39,7 @@ function Builder() {
   return (
     <>
       <div className="flex-1 mx-auto max-w-[1000px] space-y-8 p-8 pt-4 pb-2">
-        <Tabs defaultValue="update" className="min-h-[500px]">
+        <Tabs defaultValue="update" className="">
           <TabsList>
             {tabs.map(tab => 
               <TabsTrigger value={tab.value} key={tab.id}>
