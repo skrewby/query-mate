@@ -27,14 +27,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { PlusCircle, XCircle } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { CopyQueryToClipboard, DownloadQuery, SubmitType, cn } from "@/lib/utils"
 import { useState } from "react"
-
-enum SubmitType {
-  Download,
-  Clipboard,
-  Preview,
-}
 
 interface FormProps {
   csv: Papa.ParseResult<any> | null,
@@ -115,25 +109,16 @@ function UpdateForm({ csv, headers }: FormProps) {
     control: form.control
   });
 
-  const downloadQuery = (query: string) => {
-    const element = document.createElement("a");
-    const file = new Blob([query], { type: 'text/csv' });
-    element.href = URL.createObjectURL(file);
-    element.download = "queries.sql";
-    document.body.appendChild(element); // Required for this to work in FireFox
-    element.click();
-  }
-
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     switch (submitType) {
       case SubmitType.Download: {
         const query = ParseDataFromForm(csv, values);
-        downloadQuery(query);
+        DownloadQuery(query);
         break;
       }
       case SubmitType.Clipboard: {
         const query = ParseDataFromForm(csv, values);
-        await copyQueryToClipboard(query);
+        await CopyQueryToClipboard(query);
         break;
       }
       case SubmitType.Preview: {
@@ -141,14 +126,6 @@ function UpdateForm({ csv, headers }: FormProps) {
         setPreview(q);
         break;
       }
-    }
-  }
-
-  const copyQueryToClipboard = async (q: string) => {
-    try {
-      await navigator.clipboard.writeText(q);
-    } catch (error: any) {
-      console.error(error.message);
     }
   }
 
