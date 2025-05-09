@@ -1,33 +1,54 @@
-# Query Mate
+# React + TypeScript + Vite
 
-A simple query builder and formatter
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-![image](https://github.com/skrewby/query-mate/assets/33297928/62385821-164f-4bea-92c2-7f340311b296)
+Currently, two official plugins are available:
 
-## Instructions
-1 - Upload CSV File
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-2 - Choose between creating Insert or Update queries
+## Expanding the ESLint configuration
 
-3 - Map the values to be updated and inserted
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-4 - (Optional) Preview the first line of the CSV as a query
-
-5 - Create the queries which will download a SQL file
-
-## Extras
-**Use a custom WHERE clause**
-
-Note that you can also use a custom text without needing to state any of the normal WHERE clauses in the fields above
-![image](https://github.com/skrewby/query-mate/assets/33297928/ebc6468f-4e31-422f-bbbe-79446775a63a)
-
-## Developing
-Have npm installed then run
-```bash
-npm install
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-The app can then be run with
-```bash
-npm run dev
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
 ```
